@@ -5,3 +5,12 @@
 <p>Percentage pipe : {{ percentValue | percent }}</p>
 <p>Number pipe: {{ numberValue | number : "1.2-2" }}</p>
 <p>JSON pipe : {{ object | json }}</p>
+
+<h2>Custom Pipes:</h2>
+
+<input [(ngModel)]="searchTerm" placeholder="Search" />
+<ul>
+  <li *ngFor="let item of items | filter : searchTerm">
+    {{ item.name }} - {{ item.description }}
+  </li>
+</ul>
