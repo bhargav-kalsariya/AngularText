@@ -15,11 +15,10 @@ export class FilterPipe implements PipeTransform {
         if (item.hasOwnProperty(key)) {
           const value = item[key];
           if (value.toString().toLowerCase().includes(searchTerm)) {
-            return true;
+            return item;
           }
         }
       }
-      return false;
     });
     if (filteredItems.length === 0) {
       return [
