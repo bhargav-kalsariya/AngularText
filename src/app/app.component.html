@@ -19,3 +19,24 @@
     </li>
   </ul>
 </div>
+
+<h2>Attribute derectives:</h2>
+
+<div [ngClass]="{ active: isActive, highlight: isHighlighted }">
+  This element's classes are dynamically controlled.
+</div>
+<p [ngStyle]="{ color: textColor, 'font-size': fontSize }">
+  This element's styles are dynamically controlled.
+</p>
+<input [(ngModel)]="data" placeholder="Enter text" />
+{{ data }}
+
+<h2>Structural derectives:</h2>
+
+<div *ngIf="isActive">Condition got true</div>
+<li *ngFor="let item of items">for loop run</li>
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="'A'">Value is first</p>
+  <p *ngSwitchCase="'B'">Value is second</p>
+  <p *ngSwitchDefault>Value is something else</p>
+</div>

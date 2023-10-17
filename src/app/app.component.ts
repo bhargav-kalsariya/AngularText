@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  value: any = 'B';
   ngOnInit(): void {}
   title = 'angularTest';
   Bday = new Date();
@@ -34,4 +35,9 @@ export class AppComponent implements OnInit {
       hobby: 'kabaddi',
     },
   ];
+  textColor = 'red';
+  isHighlighted = false;
+  isActive = true;
+  fontSize = '16px';
+  data: string = '';
 }
