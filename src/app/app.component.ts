@@ -15,8 +15,23 @@ export class AppComponent implements OnInit {
   percentValue = 0.75;
   searchTerm: string = '';
   items: any[] = [
-    { name: 'Item 1', description: 'Description 1' },
-    { name: 'Item 2', description: 'Description 2' },
-    { name: 'Item 3', description: 'Description 3' },
+    {
+      name: 'kohli',
+      description: 'Description 1',
+      age: 12,
+      hobby: 'cricket',
+    },
+    {
+      name: 'random',
+      description: 'Description 2',
+      age: 15,
+      hobby: 'chess',
+    },
+    {
+      name: 'sunil pawar',
+      description: 'Description 3',
+      age: 17,
+      hobby: 'kabaddi',
+    },
   ];
 }

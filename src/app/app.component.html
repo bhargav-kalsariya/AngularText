@@ -8,9 +8,14 @@
 
 <h2>Custom Pipes:</h2>
 
-<input [(ngModel)]="searchTerm" placeholder="Search" />
-<ul>
-  <li *ngFor="let item of items | filter : searchTerm">
-    {{ item.name }} - {{ item.description }}
-  </li>
-</ul>
+<div class="container">
+  <input [(ngModel)]="searchTerm" placeholder="Search" />
+
+  <ul>
+    <li *ngFor="let item of items | filter : searchTerm">
+      <p>
+        {{ item | json }}
+      </p>
+    </li>
+  </ul>
+</div>

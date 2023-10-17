@@ -10,12 +10,24 @@ export class FilterPipe implements PipeTransform {
 
     searchTerm = searchTerm.toLowerCase();
 
-    return items.filter((item) => {
-      // Customize this condition to match your filtering criteria
-      return (
-        item.name.toLowerCase().includes(searchTerm) ||
-        item.description.toLowerCase().includes(searchTerm)
-      );
+    const filteredItems = items.filter((item) => {
+      for (const key in item) {
+        if (item.hasOwnProperty(key)) {
+          const value = item[key];
+          if (value.toString().toLowerCase().includes(searchTerm)) {
+            return true;
+          }
+        }
+      }
+      return false;
     });
+    if (filteredItems.length === 0) {
+      return [
+        {
+          message: 'No record available for this search',
+        },
+      ];
+    }
+    return filteredItems;
   }
 }
