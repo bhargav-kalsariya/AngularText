@@ -1,3 +1,5 @@
+<!-- in-built Pipes -->
+
 <h2>Built-in Pipes:</h2>
 <p>name using uppercase pipe : {{ title | uppercase }}</p>
 <p>name using lowercase pipe : {{ title | lowercase }}</p>
@@ -5,6 +7,8 @@
 <p>Percentage pipe : {{ percentValue | percent }}</p>
 <p>Number pipe: {{ numberValue | number : "1.2-2" }}</p>
 <p>JSON pipe : {{ object | json }}</p>
+
+<!-- Custom Pipes -->
 
 <h2>Custom Pipes:</h2>
 
@@ -20,6 +24,8 @@
   </ul>
 </div>
 
+<!-- Attribute derectives -->
+
 <h2>Attribute derectives:</h2>
 
 <div [ngClass]="{ active: isActive, highlight: isHighlighted }">
@@ -31,6 +37,8 @@
 <input [(ngModel)]="data" placeholder="Enter text" />
 {{ data }}
 
+<!-- structural derectives -->
+
 <h2>Structural derectives:</h2>
 
 <div *ngIf="isActive">Condition got true</div>
@@ -40,6 +48,8 @@
   <p *ngSwitchCase="'B'">Value is second</p>
   <p *ngSwitchDefault>Value is something else</p>
 </div>
+
+<!-- custom derectives -->
 
 <h2>Custom directives:</h2>
 <table>
