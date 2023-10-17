@@ -17,19 +17,19 @@ export class AppComponent implements OnInit {
   items: any[] = [
     {
       name: 'kohli',
-      description: 'Description 1',
+      description: 'follow the passion',
       age: 12,
       hobby: 'cricket',
     },
     {
       name: 'random',
-      description: 'Description 2',
+      description: 'it is mind game',
       age: 15,
       hobby: 'chess',
     },
     {
       name: 'sunil pawar',
-      description: 'Description 3',
+      description: 'it is strength game',
       age: 17,
       hobby: 'kabaddi',
     },
