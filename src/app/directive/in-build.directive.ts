@@ -3,15 +3,28 @@ import {
   ElementRef,
   HostListener,
   OnChanges,
-  SimpleChanges,
+  Renderer2,
 } from '@angular/core';
 
 @Directive({
   selector: '[appInBuild]',
 })
 export class InBuildDirective implements OnChanges {
-  constructor(private er: ElementRef) {}
-  @HostListener('window:keyup') ngOnChanges(event: any) {
+  constructor(private er: ElementRef, private renderer: Renderer2) {}
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.renderer.setStyle(
+      this.er.nativeElement,
+      'background-color',
+      'lightgray'
+    );
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.renderer.removeStyle(this.er.nativeElement, 'background-color');
+  }
+  @HostListener('window:keyup')
+  ngOnChanges(event: any) {
     let count = this.er.nativeElement.value.length;
     if (count < 5) {
       this.er.nativeElement.style.backgroundColor = 'red';

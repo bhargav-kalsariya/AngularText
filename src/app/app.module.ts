@@ -8,7 +8,12 @@ import { DirectiveComponent } from './directive/directive.component';
 import { InBuildDirective } from './directive/in-build.directive';
 
 @NgModule({
-  declarations: [AppComponent, FilterPipe, DirectiveComponent, InBuildDirective],
+  declarations: [
+    AppComponent,
+    FilterPipe,
+    DirectiveComponent,
+    InBuildDirective,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
