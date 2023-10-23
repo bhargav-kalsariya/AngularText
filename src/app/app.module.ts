@@ -7,6 +7,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { DirectiveComponent } from './directive/directive.component';
 import { InBuildDirective } from './directive/in-build.directive';
 import { PipeComponent } from './pipe/pipe.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PipeComponent } from './pipe/pipe.component';
     DirectiveComponent,
     InBuildDirective,
     PipeComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

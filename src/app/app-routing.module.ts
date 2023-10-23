@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DirectiveComponent } from './directive/directive.component';
 import { PipeComponent } from './pipe/pipe.component';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [{
   component: DirectiveComponent,
@@ -12,7 +12,7 @@ const routes: Routes = [{
   component: PipeComponent,
   path: 'pipe'
 }, {
-  component: AppComponent,
+  component: HomeComponent,
   path: ''
 }];
 
