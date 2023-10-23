@@ -1,23 +1,31 @@
-<form #f='ngForm' (ngSubmit)="onSubmit(f)">
+<div class="form-wrapper">
+    <form #f='ngForm' (ngSubmit)="onSubmit(f)">
 
-    <label for="name">Name : </label>
-    <input type="text" id="name" name="name" #name="ngModel" [ngClass]="{'is-invalid':f.submitted && name.invalid}"
-        ngModel required>
-    <div *ngIf="f.submitted && name.errors" class="invalid-feedback">
-        Name is required
-    </div>
-    <label for="name">id : </label>
-    <input type="number" id='id' name='id' #id="ngModel" [ngClass]="{'is-invalid':f.submitted && id.invalid}" ngModel
-        required>
-    <div *ngIf="f.submitted && id.errors" class="invalid-feedback">
-        Id is required
-    </div>
-    <label for="name">Age : </label>
-    <input type="text" id="age" name="age" #age="ngModel" [ngClass]="{'is-invalid':f.submitted && age.invalid}" ngModel
-        required>
-    <div *ngIf="f.submitted && age.errors" class="invalid-feedback">
-        Age is required
-    </div>
-    <button>Register</button>
+        <label for="name">Name : </label>
+        <input type="text" id="name" name="name" #name="ngModel" [ngClass]="{'is-invalid':f.submitted && name.invalid}"
+            ngModel required>
+        <div *ngIf="f.submitted && name.errors" class="invalid-feedback">
+            Name is required
+        </div>
+        <label for="name">id : </label>
+        <input type="number" id='id' name='id' #id="ngModel" [ngClass]="{'is-invalid':f.submitted && id.invalid}"
+            ngModel required>
+        <div *ngIf="f.submitted && id.errors" class="invalid-feedback">
+            Id is required & only number are allowed
+        </div>
+        <label for="name">Age : </label>
+        <input type="number" id="age" name="age" #age="ngModel" [ngClass]="{'is-invalid':f.submitted && age.invalid}"
+            ngModel required>
+        <div *ngIf="f.submitted && age.errors" class="invalid-feedback">
+            Age is required & only numbers are allowed
+        </div>
+        <label for="name">Address : </label>
+        <textarea type="text" id="address" name="address" #address="ngModel"
+            [ngClass]="{'is-invalid':f.submitted && address.invalid}" ngModel required></textarea>
+        <div *ngIf="f.submitted && address.errors" class="invalid-feedback">
+            Address is required
+        </div>
+        <button class="button">Submit</button>
 
-</form>
+    </form>
+</div>

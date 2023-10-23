@@ -12,6 +12,7 @@ export class MyFormComponent {
       return;
     }
     console.log(f.value);
+    f.reset();
   }
 
 }

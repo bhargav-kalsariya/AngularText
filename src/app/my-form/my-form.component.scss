@@ -1,40 +1,51 @@
-/* my-form.component.scss */
-
-form {
+.form-wrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  /* Set the form height to fill the viewport height */
-  margin: 0;
-  padding: 20px;
-  background-color: #f0f0f0;
-  /* Optional background color */
-}
+  height: 90vh;
 
-label {
-  font-weight: bold;
-  margin-bottom: 10px;
-  /* Add space between label and input */
-}
+  form {
+    width: 300px;
+    margin: 0 auto;
+  }
 
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  /* Add space between input elements */
-}
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  input.is-invalid {
+    border-color: red;
+  }
+
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .invalid-feedback {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  textarea.is-invalid {
+    border-color: red;
+  }
+
 }
