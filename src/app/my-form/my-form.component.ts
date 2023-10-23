@@ -1,40 +1,17 @@
 import { Component } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-my-form',
   templateUrl: './my-form.component.html',
   styleUrls: ['./my-form.component.scss']
 })
 export class MyFormComponent {
-  formData: any = {
-    name: '',
-    id: '',
-    age: '',
-    address: {
-      houseNo: '',
-      addressLine1: '',
-      addressLine2: '',
-      city: '',
-      state: '',
-      country: ''
+
+  onSubmit(f: NgForm) {
+    if (f.invalid) {
+      return;
     }
-  };
-
-  onSubmit() {
-    console.log('Form data submitted:', this.formData);
-
-    this.formData = {
-      name: '',
-      id: '',
-      age: '',
-      address: {
-        houseNo: '',
-        addressLine1: '',
-        addressLine2: '',
-        city: '',
-        state: '',
-        country: ''
-      }
-    };
+    console.log(f.value);
   }
+
 }
