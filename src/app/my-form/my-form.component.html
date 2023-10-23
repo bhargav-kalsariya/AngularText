@@ -1,46 +1,46 @@
 <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
-  </div>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
+    </div>
 
-  <div>
-    <label for="id">ID:</label>
-    <input type="text" id="id" name="id" [(ngModel)]="formData.id" required>
-  </div>
+    <div>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" [(ngModel)]="formData.id" required>
+    </div>
 
-  <div>
-    <label for="age">Age:</label>
-    <input type="number" id="age" name="age" [(ngModel)]="formData.age" required>
-  </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" [(ngModel)]="formData.age" required>
+    </div>
 
-  <div>
-    <label for="address">Address:</label>
     <div>
-      <label for="houseNo">House No:</label>
-      <input type="text" id="houseNo" name="houseNo" [(ngModel)]="formData.address.houseNo">
+        <label for="address">Address:</label>
+        <div>
+            <label for="houseNo">House No:</label>
+            <input type="text" id="houseNo" name="houseNo" [(ngModel)]="formData.address.houseNo">
+        </div>
+        <div>
+            <label for="addressLine1">Address Line 1:</label>
+            <input type="text" id="addressLine1" name="addressLine1" [(ngModel)]="formData.address.addressLine1">
+        </div>
+        <div>
+            <label for="addressLine2">Address Line 2:</label>
+            <input type="text" id="addressLine2" name="addressLine2" [(ngModel)]="formData.address.addressLine2">
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" [(ngModel)]="formData.address.city">
+        </div>
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" [(ngModel)]="formData.address.state">
+        </div>
+        <div>
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" [(ngModel)]="formData.address.country">
+        </div>
     </div>
-    <div>
-      <label for="addressLine1">Address Line 1:</label>
-      <input type="text" id="addressLine1" name="addressLine1" [(ngModel)]="formData.address.addressLine1">
-    </div>
-    <div>
-      <label for="addressLine2">Address Line 2:</label>
-      <input type="text" id="addressLine2" name="addressLine2" [(ngModel)]="formData.address.addressLine2">
-    </div>
-    <div>
-      <label for="city">City:</label>
-      <input type="text" id="city" name="city" [(ngModel)]="formData.address.city">
-    </div>
-    <div>
-      <label for="state">State:</label>
-      <input type="text" id="state" name="state" [(ngModel)]="formData.address.state">
-    </div>
-    <div>
-      <label for="country">Country:</label>
-      <input type="text" id="country" name="country" [(ngModel)]="formData.address.country">
-    </div>
-  </div>
 
-  <button type="submit">Submit</button>
+    <button type="submit">Submit</button>
 </form>
