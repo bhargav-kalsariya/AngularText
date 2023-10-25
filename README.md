@@ -8,3 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - built-in directives
 - custom pipes
 - custom directives
+
+### Day 2 (23-10-2023)
+
+- build simple template driven form
+- implement validation on from
