@@ -12,18 +12,7 @@ export class MyFormComponent {
       return;
     }
 
-    const formdata = {
-      name: f.value.name,
-      id: f.value.id,
-      age: f.value.age,
-      address: {
-        street: f.value.address.street,
-        city: f.value.address.city,
-        zipcode: f.value.address.zipcode
-      }
-    }
-
-    console.log(formdata);
+    console.log(f.value);
     f.reset();
   }
 
