@@ -13,3 +13,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - build simple template driven form
 - implement validation on from
+- build nested template driven form
+- implement validation on from

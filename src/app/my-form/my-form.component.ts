@@ -11,7 +11,19 @@ export class MyFormComponent {
     if (f.invalid) {
       return;
     }
-    console.log(f.value);
+
+    const formdata = {
+      name: f.value.name,
+      id: f.value.id,
+      age: f.value.age,
+      address: {
+        street: f.value.address.street,
+        city: f.value.address.city,
+        zipcode: f.value.address.zipcode
+      }
+    }
+
+    console.log(formdata);
     f.reset();
   }
 

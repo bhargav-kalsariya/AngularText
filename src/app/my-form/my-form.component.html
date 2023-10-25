@@ -19,12 +19,35 @@
         <div *ngIf="f.submitted && age.errors" class="invalid-feedback">
             Age is required & only numbers are allowed
         </div>
-        <label for="name">Address : </label>
-        <textarea type="text" id="address" name="address" #address="ngModel"
-            [ngClass]="{'is-invalid':f.submitted && address.invalid}" ngModel required></textarea>
-        <div *ngIf="f.submitted && address.errors" class="invalid-feedback">
-            Address is required
+
+        <!-- address  -->
+
+        <div class="address-form" ngModelGroup="address">
+            Address : <br><br>
+            <label for="street">Street:</label>
+            <input type="text" id="street" name="street" #street="ngModel"
+                [ngClass]="{'is-invalid':f.submitted && street.invalid}" ngModel required>
+            <div *ngIf="f.submitted && street.invalid" class="invalid-feedback">
+                Street is required
+            </div>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" #city="ngModel"
+                [ngClass]="{'is-invalid':f.submitted && city.invalid}" ngModel required>
+            <div *ngIf="f.submitted && city.invalid" class="invalid-feedback">
+                City is required
+            </div>
+
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" id="zipcode" name="zipcode" #zipcode="ngModel"
+                [ngClass]="{'is-invalid':f.submitted && zipcode.invalid}" ngModel required>
+            <div *ngIf="f.submitted && zipcode.invalid" class="invalid-feedback">
+                Zip Code is required
+            </div>
         </div>
+
+        <!-- submit  -->
+
         <button class="button">Submit</button>
 
     </form>
