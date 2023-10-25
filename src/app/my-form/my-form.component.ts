@@ -13,7 +13,7 @@ export class MyFormComponent {
     }
 
     console.log(f.value);
-    f.reset();
+    f.resetForm();
   }
 
 }
