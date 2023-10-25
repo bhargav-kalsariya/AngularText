@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./parent.component.scss']
 })
 export class ParentComponent {
-  transfer: any = 'this parent from component'
+  transfer: any = 'this parent from component';
+  parentcounter =0;
+  clickHandler(value: any){
+    this.parentcounter = value;
+  }
 }

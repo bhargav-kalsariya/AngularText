@@ -1,3 +1,3 @@
-<p class="parent">parent works!
-    <app-child [random]="transfer"></app-child>
+<p class="parent">parent works! and this is parent counter {{parentcounter}}
+    <app-child [random]="transfer" (clickToChild)="clickHandler($event)"></app-child>
 </p>
