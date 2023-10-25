@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DirectiveComponent } from './directive/directive.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { HomeComponent } from './home/home.component';
+import { MyFormComponent } from './my-form/my-form.component';
 
 const routes: Routes = [{
   component: DirectiveComponent,
@@ -14,6 +15,9 @@ const routes: Routes = [{
 }, {
   component: HomeComponent,
   path: ''
+}, {
+  component: MyFormComponent,
+  path: 'form'
 }];
 
 @NgModule({

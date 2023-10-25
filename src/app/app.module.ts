@@ -8,6 +8,7 @@ import { DirectiveComponent } from './directive/directive.component';
 import { InBuildDirective } from './directive/in-build.directive';
 import { PipeComponent } from './pipe/pipe.component';
 import { HomeComponent } from './home/home.component';
+import { MyFormComponent } from './my-form/my-form.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     InBuildDirective,
     PipeComponent,
     HomeComponent,
+    MyFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
