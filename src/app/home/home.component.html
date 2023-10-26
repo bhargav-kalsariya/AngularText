@@ -1,1 +1,17 @@
-This is home page
+<h1>This is home page</h1>
+<h2>Now you are going to get <i>Array of Object</i> by BehaviourSubject :- <br><br><br>
+    <span>data is null untill you click on
+        BehaviourSubject btn on inputoutput page</span>
+    <table>
+        <tr>
+            <th>Property</th>
+            <th>Value</th>
+        </tr>
+        <ng-container *ngFor="let record of showData">
+            <tr *ngFor="let item of record | keyvalue">
+                <td>{{ item.key }}</td>
+                <td>{{ item.value }}</td>
+            </tr>
+        </ng-container>
+    </table>
+</h2>
