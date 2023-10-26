@@ -6,9 +6,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./child.component.scss']
 })
 export class ChildComponent {
-  @Input() random: any;
-  count = 0;
+  @Input() message: any;
   @Output() clickToChild = new EventEmitter<number>();
+
+  count = 0;
+  
   clickHandle() {
     this.count++;
     this.clickToChild.emit(this.count);

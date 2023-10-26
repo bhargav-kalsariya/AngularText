@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ParentComponent {
   transfer: any = 'this parent from component';
-  parentcounter =0;
-  clickHandler(value: any){
+  parentcounter = 0;
+  
+  clickHandler(value: any) {
     this.parentcounter = value;
   }
 }
