@@ -4,6 +4,7 @@ import { DirectiveComponent } from './directive/directive.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { HomeComponent } from './home/home.component';
 import { MyFormComponent } from './my-form/my-form.component';
+import { ParentComponent } from './parent/parent.component';
 
 const routes: Routes = [{
   component: DirectiveComponent,
@@ -18,6 +19,10 @@ const routes: Routes = [{
 }, {
   component: MyFormComponent,
   path: 'form'
+},
+{
+  component: ParentComponent,
+  path: 'inputoutput'
 }];
 
 @NgModule({

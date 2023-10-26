@@ -9,6 +9,8 @@ import { InBuildDirective } from './directive/in-build.directive';
 import { PipeComponent } from './pipe/pipe.component';
 import { HomeComponent } from './home/home.component';
 import { MyFormComponent } from './my-form/my-form.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,11 @@ import { MyFormComponent } from './my-form/my-form.component';
     PipeComponent,
     HomeComponent,
     MyFormComponent,
+    ParentComponent,
+    ChildComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

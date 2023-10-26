@@ -15,3 +15,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - implement validation on from
 - build nested template driven form
 - implement validation on from
+
+### Day 3 (23-10-2023)
+
+- learn about @input and @output in angular
+- create a data passing parent to child example using @input
+- create a data passing child to parent example using @output
