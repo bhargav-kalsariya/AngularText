@@ -25,14 +25,12 @@ export class ReactiveFormComponent {
   cities = ['New York City', 'Los Angeles', 'San Francisco', 'Toronto', 'London'];
 
   handleSubmit() {
-    if (this.id.valid && this.name.valid && this.email.valid && this.address.valid) {
-      const formData = {
-        id: this.id.value,
-        name: this.name.value,
-        email: this.email.value,
-        address: this.address.value
-      };
-      console.log('Form Data:', formData);
-    }
+    const formData = {
+      id: this.id.value,
+      name: this.name.value,
+      email: this.email.value,
+      address: this.address.value
+    };
+    console.log('Form Data:', formData);
   }
 }
