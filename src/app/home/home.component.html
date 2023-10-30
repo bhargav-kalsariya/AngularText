@@ -15,3 +15,11 @@
         </ng-container>
     </table>
 </h2>
+
+<h2>Posts from the API:</h2>
+<button (click)="fetchData()">Fetch Data from API</button>
+<ul>
+    <li *ngFor="let post of posts">
+        {{ post.title }}
+    </li>
+</ul>
