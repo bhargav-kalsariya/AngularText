@@ -1,25 +1,52 @@
-<form (ngSubmit)="handleSubmit()">
+<form (ngSubmit)="handleSubmit()" #myForm="ngForm">
     <label for="id">id : </label>
     <input type="number" name="id" id="id" [formControl]="id" required>
-    <div *ngIf="id.invalid && id.touched">
+    <div class="error-message" *ngIf="id.invalid && id.touched">
         <div *ngIf="id.hasError('required')">ID is required.</div>
     </div>
     <label for="name">Name : </label>
     <input type="text" name="name" id="name" [formControl]="name" required>
-    <div *ngIf="name.invalid && name.touched">
+    <div class="error-message" *ngIf="name.invalid && name.touched">
         <div *ngIf="name.hasError('required')">Name is required.</div>
-    </div>
-    <label for="age">age : </label>
-    <input type="number" name="age" id="age" [formControl]="age" required>
-    <div *ngIf="age.invalid && age.touched">
-        <div *ngIf="age.hasError('required')">Age is required.</div>
-        <div *ngIf="age.hasError('min') || age.hasError('max')">Age must be between 18 and 75.</div>
     </div>
     <label for="email">email : </label>
     <input type="text" name="email" id="email" [formControl]="email" required>
-    <div *ngIf="email.invalid && email.touched">
-        <div *ngIf="email.hasError('required')">Email is required.</div>
+    <div class="error-message" *ngIf="email.invalid && email.touched">
         <div *ngIf="email.hasError('email')">Invalid email format.</div>
     </div>
-    <button>Submit</button>
+    <form [formGroup]="address">
+        <label for="address1">Address1 : </label>
+        <input type="text" name="address1" id="address1" formControlName="address1" required>
+        <div class="error-message"
+            *ngIf="address.get('address1')?.hasError('required') && address.get('address1')?.touched">
+            <div class="error-message" *ngIf="address.get('address1')?.hasError('required')">address1 is required.</div>
+        </div>
+        <label for="address2">Address2 : </label>
+        <input type="text" name="address2" id="address2" formControlName="address2">
+        <label for="landmark">LandMark : </label>
+        <input type="text" name="landmark" id="landmark" formControlName="landmark" required>
+        <div class="error-message"
+            *ngIf="address.get('landmark')?.hasError('required') && address.get('landmark')?.touched">
+            <div *ngIf="address.get('landmark')?.hasError('required')">landmark is required.</div>
+        </div>
+        <label for="country">Country: </label>
+        <select name="country" id="country" formControlName="country">
+            <option value="" disabled>Select a country</option>
+            <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+
+        <label for="state">State: </label>
+        <select name="state" id="state" formControlName="state">
+            <option value="" disabled>Select a state</option>
+            <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+        </select>
+
+        <label for="city">City: </label>
+        <select name="city" id="city" formControlName="city">
+            <option value="" disabled>Select a city</option>
+            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+        </select>
+
+    </form>
+    <button [disabled]="!address.valid">Submit</button>
 </form>

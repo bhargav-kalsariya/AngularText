@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -7,19 +7,32 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormComponent {
-  id = new FormControl('', [Validators.required]);
-  name = new FormControl('', [Validators.required]);
-  age = new FormControl('', [Validators.required, Validators.min(18), Validators.max(75)]);
+  id = new FormControl('', Validators.required);
+  name = new FormControl('', Validators.required);
   email = new FormControl('', [Validators.required, Validators.email]);
 
+  address = new FormGroup({
+    address1: new FormControl('', Validators.required),
+    address2: new FormControl(''),
+    landmark: new FormControl('', Validators.required),
+    country: new FormControl('', Validators.required),
+    state: new FormControl('', Validators.required),
+    city: new FormControl('', Validators.required)
+  });
+
+  countries = ['USA', 'Canada', 'UK', 'Australia'];
+  states = ['New York', 'California', 'Texas', 'Ontario', 'London'];
+  cities = ['New York City', 'Los Angeles', 'San Francisco', 'Toronto', 'London'];
+
   handleSubmit() {
-    if (this.id.valid && this.name.valid && this.age.valid && this.email.valid) {
-      console.log({
+    if (this.id.valid && this.name.valid && this.email.valid && this.address.valid) {
+      const formData = {
         id: this.id.value,
         name: this.name.value,
-        age: this.age.value,
-        email: this.email.value
-      });
+        email: this.email.value,
+        address: this.address.value
+      };
+      console.log('Form Data:', formData);
     }
   }
 }
