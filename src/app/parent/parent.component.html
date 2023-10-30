@@ -1,3 +1,6 @@
-<p class="parent">parent works! and this is parent counter {{parentcounter}}
-    <app-child [message]="transfer" (clickToChild)="clickHandler($event)"></app-child>
-</p>
+<h4 class="parent">parent works! and this is parent counter {{parentcounter}}
+
+    <button (click)="generateRandomNumber()">Generate rendom number</button>
+    <app-child [message]="transfer" (clickToChild)="clickHandler($event)" [takeRandomNumber]="randomNumber"></app-child>
+    <button (click)="sharingDataToOthers()">Behaviour Subject</button>
+</h4>

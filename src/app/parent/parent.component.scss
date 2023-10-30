@@ -1,3 +1,15 @@
 .parent {
-    background-color: rgba(255, 0, 255, 0.644);
+    border: 2px solid #3498db;
+    padding: 20px;
+    margin: 10px;
+    background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+    box-shadow: 4px 4px 0px 0px #3498db;
+
+    button {
+        background: linear-gradient(135deg, #3498db, #2079b0);
+        color: #fff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
 }
