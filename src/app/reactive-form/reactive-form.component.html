@@ -48,5 +48,5 @@
         </select>
 
     </form>
-    <button [disabled]="!address.valid">Submit</button>
+    <button [disabled]="!name.valid || !id.valid || !email.valid || !address.valid">Submit</button>
 </form>
