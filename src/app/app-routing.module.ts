@@ -5,6 +5,7 @@ import { PipeComponent } from './pipe/pipe.component';
 import { HomeComponent } from './home/home.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { ParentComponent } from './parent/parent.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const routes: Routes = [{
   component: DirectiveComponent,
@@ -23,6 +24,9 @@ const routes: Routes = [{
 {
   component: ParentComponent,
   path: 'inputoutput'
+}, {
+  component: ReactiveFormComponent,
+  path: 'reactiveForm'
 }];
 
 @NgModule({

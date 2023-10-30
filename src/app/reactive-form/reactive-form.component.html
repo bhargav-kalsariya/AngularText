@@ -1,0 +1,25 @@
+<form (ngSubmit)="handleSubmit()">
+    <label for="id">id : </label>
+    <input type="number" name="id" id="id" [formControl]="id" required>
+    <div *ngIf="id.invalid && id.touched">
+        <div *ngIf="id.hasError('required')">ID is required.</div>
+    </div>
+    <label for="name">Name : </label>
+    <input type="text" name="name" id="name" [formControl]="name" required>
+    <div *ngIf="name.invalid && name.touched">
+        <div *ngIf="name.hasError('required')">Name is required.</div>
+    </div>
+    <label for="age">age : </label>
+    <input type="number" name="age" id="age" [formControl]="age" required>
+    <div *ngIf="age.invalid && age.touched">
+        <div *ngIf="age.hasError('required')">Age is required.</div>
+        <div *ngIf="age.hasError('min') || age.hasError('max')">Age must be between 18 and 75.</div>
+    </div>
+    <label for="email">email : </label>
+    <input type="text" name="email" id="email" [formControl]="email" required>
+    <div *ngIf="email.invalid && email.touched">
+        <div *ngIf="email.hasError('required')">Email is required.</div>
+        <div *ngIf="email.hasError('email')">Invalid email format.</div>
+    </div>
+    <button>Submit</button>
+</form>
