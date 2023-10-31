@@ -1,25 +1,27 @@
-<!-- in-built Pipes -->
-
-<h2>Built-in Pipes:</h2>
-<p>name using uppercase pipe : {{ title | uppercase }}</p>
-<p>name using lowercase pipe : {{ title | lowercase }}</p>
-<p>Currency pipe : {{ price | currency : "USD" }}</p>
-<p>Percentage pipe : {{ percentValue | percent }}</p>
-<p>Number pipe: {{ numberValue | number : "1.2-2" }}</p>
-<p>JSON pipe : {{ object | json }}</p>
-
-<!-- Custom Pipes -->
-
-<h2>Custom Pipes:</h2>
-
 <div class="container">
-  <input [(ngModel)]="searchTerm" placeholder="Search" />
+  <!-- in-built Pipes -->
 
-  <ul>
-    <li *ngFor="let item of items | filter : searchTerm">
-      <p>
-        {{ item | json }}
-      </p>
-    </li>
-  </ul>
+  <h2>Built-in Pipes:</h2>
+  <p>name using uppercase pipe : {{ title | uppercase }}</p>
+  <p>name using lowercase pipe : {{ title | lowercase }}</p>
+  <p>Currency pipe : {{ price | currency : "USD" }}</p>
+  <p>Percentage pipe : {{ percentValue | percent }}</p>
+  <p>Number pipe: {{ numberValue | number : "1.2-2" }}</p>
+  <p>JSON pipe : {{ object | json }}</p>
+
+  <!-- Custom Pipes -->
+
+  <h2>Custom Pipes:</h2>
+
+  <div class="container">
+    <input [(ngModel)]="searchTerm" placeholder="Search" />
+
+    <ul>
+      <li *ngFor="let item of items | filter : searchTerm">
+        <p>
+          {{ item | json }}
+        </p>
+      </li>
+    </ul>
+  </div>
 </div>

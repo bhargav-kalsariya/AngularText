@@ -1,36 +1,59 @@
-/* Component SCSS file, e.g., pipes.component.scss */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-ul {
+.nav-list {
   list-style: none;
   padding: 0;
   display: flex;
   background-color: #333;
+  margin: 0;
 
   li {
     margin: 0;
-    padding: 0;
-  }
-}
 
-li {
-  a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #fff;
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      position: relative;
 
-    &:hover {
-      background-color: #555;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        background: rgb(255, 51, 0);
+        transition: ease 0.5s;
+      }
+
+      &::before {
+        left: 0;
+        bottom: 0;
+      }
+
+      &::after {
+        right: 0;
+        bottom: 0;
+      }
+
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 }
 
 router-outlet {
-  /* Styles for the router outlet, if needed */
-  margin-top: 20px;
+  padding: 20px;
 }

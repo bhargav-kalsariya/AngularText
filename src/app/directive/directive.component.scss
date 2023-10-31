@@ -1,12 +1,86 @@
-.active {
-  padding: 1rem;
-  color: green;
-}
-.box {
-  width: 200px;
-  height: 100px;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  text-align: center;
+/* Table container */
+.directive-container {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+
+  /* Rows and cells */
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    /* Attribute Directives section */
+    .directive-title {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .directive-container {
+      &.active {
+        background-color: lightgreen;
+      }
+
+      &.highlight {
+        border: 2px solid orange;
+      }
+    }
+
+    .directive-input {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+
+    /* Structural Directives section */
+    .directive-title {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .directive-container {
+      &.ng-trigger {
+        display: block;
+      }
+    }
+
+    li {
+      list-style: none;
+    }
+
+    [ngSwitch] {
+      p *ngSwitchCase {
+        font-weight: bold;
+      }
+    }
+
+    /* Custom Directives section */
+    .directive-title {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .directive-table {
+      width: 100%;
+    }
+
+    .directive-label {
+      font-weight: bold;
+    }
+
+    .directive-input[appInBuild] {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+
+    .directive-box[appInBuild] {
+      transition: background-color 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lightblue;
+      }
+    }
+  }
 }

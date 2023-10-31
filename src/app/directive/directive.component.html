@@ -1,39 +1,46 @@
-<!-- Attribute derectives -->
-
-<h2>Attribute derectives:</h2>
-
-<div [ngClass]="{ active: isActive, highlight: isHighlighted }">
-  This element's classes are dynamically controlled.
-</div>
-<p [ngStyle]="{ color: textColor, 'font-size': fontSize }">
-  This element's styles are dynamically controlled.
-</p>
-<input [(ngModel)]="data" placeholder="Enter text" />
-{{ data }}
-
-<!-- structural derectives -->
-
-<h2>Structural derectives:</h2>
-
-<div *ngIf="isActive">Condition got true</div>
-<li *ngFor="let item of items">for loop run</li>
-<div [ngSwitch]="value">
-  <p *ngSwitchCase="'A'">Value is first</p>
-  <p *ngSwitchCase="'B'">Value is second</p>
-  <p *ngSwitchDefault>Value is something else</p>
-</div>
-
-<!-- custom derectives -->
-
-<h2>Custom directives:</h2>
-<table>
+<table class="directive-container">
   <tr>
     <td>
-      <label>Please enter your password :-</label>
+      <!-- Attribute Directives -->
+      <h2 class="directive-title">Attribute Directives:</h2>
+      <div [ngClass]="{ active: isActive, highlight: isHighlighted }">
+        This element's classes are dynamically controlled.
+      </div>
+      <p [ngStyle]="{ color: textColor, 'font-size': fontSize }">
+        This element's styles are dynamically controlled.
+      </p>
+      <input [(ngModel)]="data" placeholder="Enter text" />
+      {{ data }}
     </td>
+  </tr>
+  <tr>
     <td>
-      <input type="text" appInBuild />
+      <!-- Structural Directives -->
+      <h2 class="directive-title">Structural Directives:</h2>
+      <div *ngIf="isActive">Condition got true</div>
+      <li *ngFor="let item of items">for loop run</li>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="'A'">Value is first</p>
+        <p *ngSwitchCase="'B'">Value is second</p>
+        <p *ngSwitchDefault>Value is something else</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <!-- Custom Directives -->
+      <h2 class="directive-title">Custom Directives:</h2>
+      <table class="directive-table">
+        <tr>
+          <td>
+            <label class="directive-label">Please enter your password :-</label>
+          </td>
+          <td>
+            <input class="directive-input" type="text" appInBuild />
+          </td>
+        </tr>
+      </table>
+      <div class="directive-box" appInBuild>Hover over this div to see the effect.</div>
     </td>
   </tr>
 </table>
-<div appInBuild class="box">Hover over this div to see the effect.</div>
