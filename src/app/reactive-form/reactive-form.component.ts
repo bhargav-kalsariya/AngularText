@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,16 +8,29 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
   mainForm!: FormGroup;
-
-  countries = ['Country 1', 'Country 2', 'Country 3'];
-  states = ['State 1', 'State 2', 'State 3'];
-  cities = ['City 1', 'City 2', 'City 3'];
+  countries = ['Select a country', 'India', 'China', 'Germany'];
+  states: { [key: string]: string[] } = {
+    'India': ['Gujarat', 'Maharashtra', 'Delhi'],
+    'China': ['Hainan', 'Sichuan', 'Yunnan'],
+    'Germany': ['Berlin', 'Bavaria', 'Saxony']
+  };
+  cities: { [key: string]: string[] } = {
+    'Gujarat': ['Ahmedabad', 'Surat', 'Vadodara'],
+    'Maharashtra': ['Mumbai', 'Pune', 'Nagpur'],
+    'Delhi': ['New Delhi', 'Noida', 'Gurugram'],
+    'Hainan': ['Haikou', 'Sanya', 'Wenchang'],
+    'Sichuan': ['Chengdu', 'Chongqing', 'Leshan'],
+    'Yunnan': ['Kunming', 'Lijiang', 'Dali'],
+    'Berlin': ['Berlin City Center', 'Charlottenburg', 'Prenzlauer Berg'],
+    'Bavaria': ['Munich', 'Nuremberg', 'Augsburg'],
+    'Saxony': ['Dresden', 'Leipzig', 'Chemnitz']
+  };
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.mainForm = this.formBuilder.group({
-      id: ['', Validators.required],
+      id: ['', [Validators.required]],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       addresses: this.formBuilder.array([this.createAddress()])
@@ -52,7 +65,7 @@ export class ReactiveFormComponent implements OnInit {
       console.log('Form Data:', this.mainForm.value);
       this.mainForm.reset();
     } else {
-      alert('you have to fill all the field')
+      alert('Please fill in all required fields with valid data.');
     }
   }
 }

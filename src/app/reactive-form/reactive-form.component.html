@@ -45,7 +45,6 @@
             <div class="form-group">
                 <label for="country">Country:</label>
                 <select id="country" name="country" formControlName="country">
-                    <option value="">Select a country</option>
                     <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
                 </select>
                 <div class="error"
@@ -56,8 +55,7 @@
             <div class="form-group">
                 <label for="state">State:</label>
                 <select id="state" name="state" formControlName="state">
-                    <option value="">Select a state</option>
-                    <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                    <option *ngFor="let state of states[address.get('country')?.value]" [value]="state">{{ state }}</option>
                 </select>
                 <div class="error"
                     *ngIf="addresses.controls[i].get('state')?.hasError('required') && addresses.controls[i].get('state')?.touched">
@@ -67,8 +65,7 @@
             <div class="form-group">
                 <label for="city">City:</label>
                 <select id="city" name="city" formControlName="city">
-                    <option value="">Select a city</option>
-                    <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    <option *ngFor="let city of cities[address.get('state')?.value]" [value]="city">{{ city }}</option>
                 </select>
                 <div class="error"
                     *ngIf="addresses.controls[i].get('city')?.hasError('required') && addresses.controls[i].get('city')?.touched">
