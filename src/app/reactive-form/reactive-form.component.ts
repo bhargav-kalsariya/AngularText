@@ -66,8 +66,23 @@ export class ReactiveFormComponent implements OnInit {
     if (this.mainForm.valid) {
       console.log('Form Data:', this.mainForm.value);
       this.mainForm.reset();
-    } else {
-      alert('Please fill in all required fields with valid data.');
     }
+  }
+  triggerErrorMessages() {
+    for (const key in this.mainForm.controls) {
+      if (this.mainForm.controls[key] instanceof FormGroup) {
+        const formGroup = this.mainForm.controls[key] as FormGroup;
+        for (const subKey in formGroup.controls) {
+          formGroup.controls[subKey].markAsTouched();
+        }
+      } else {
+        this.mainForm.controls[key].markAsTouched();
+      }
+    }
+  }
+  onCountryChange(index: number) {
+    const addressFormGroup = this.addresses.controls[index] as FormGroup;
+    addressFormGroup.get('state')?.reset();
+    addressFormGroup.get('city')?.reset();
   }
 }
