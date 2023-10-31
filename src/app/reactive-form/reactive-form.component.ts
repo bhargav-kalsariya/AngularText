@@ -1,36 +1,58 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss']
 })
-export class ReactiveFormComponent {
-  id = new FormControl('', Validators.required);
-  name = new FormControl('', Validators.required);
-  email = new FormControl('', [Validators.required, Validators.email]);
+export class ReactiveFormComponent implements OnInit {
+  mainForm!: FormGroup;
 
-  address = new FormGroup({
-    address1: new FormControl('', Validators.required),
-    address2: new FormControl(''),
-    landmark: new FormControl('', Validators.required),
-    country: new FormControl('', Validators.required),
-    state: new FormControl('', Validators.required),
-    city: new FormControl('', Validators.required)
-  });
+  countries = ['Country 1', 'Country 2', 'Country 3'];
+  states = ['State 1', 'State 2', 'State 3'];
+  cities = ['City 1', 'City 2', 'City 3'];
 
-  countries = ['USA', 'Canada', 'UK', 'Australia'];
-  states = ['New York', 'California', 'Texas', 'Ontario', 'London'];
-  cities = ['New York City', 'Los Angeles', 'San Francisco', 'Toronto', 'London'];
+  constructor(private formBuilder: FormBuilder) { }
 
-  handleSubmit() {
-    const formData = {
-      id: this.id.value,
-      name: this.name.value,
-      email: this.email.value,
-      address: this.address.value
-    };
-    console.log('Form Data:', formData);
+  ngOnInit() {
+    this.mainForm = this.formBuilder.group({
+      id: ['', Validators.required],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      addresses: this.formBuilder.array([this.createAddress()])
+    });
+  }
+
+  createAddress() {
+    return this.formBuilder.group({
+      address1: ['', Validators.required],
+      address2: [''],
+      landmark: [''],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required]
+    });
+  }
+
+  get addresses() {
+    return this.mainForm.get('addresses') as FormArray;
+  }
+
+  addAddress() {
+    this.addresses.push(this.createAddress());
+  }
+
+  removeAddress(index: number) {
+    this.addresses.removeAt(index);
+  }
+
+  onSubmit() {
+    if (this.mainForm.valid) {
+      console.log('Form Data:', this.mainForm.value);
+      this.mainForm.reset();
+    } else {
+      alert('you have to fill all the field')
+    }
   }
 }

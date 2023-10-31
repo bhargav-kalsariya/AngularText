@@ -1,89 +1,76 @@
-/* reactive-form.component.scss */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Style for the outer form */
 form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 10px auto;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input,
-select {
-    padding: 8px;
-    margin-bottom: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 10px;
+
+    label {
+        display: block;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    select {
+        cursor: pointer;
+    }
+}
+
+div.error {
+    color: red;
     font-size: 14px;
+    margin-top: 5px;
+}
+
+.space-btn {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.remove-btn {
+    display: block;
+    margin: 0 auto;
 }
 
 button {
     background-color: #007bff;
     color: #fff;
-    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-}
+    margin-top: 10px;
 
-/* Error message styling for the outer form */
-div.error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-/* Style for the inner form */
-form form {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-/* Error message styling for the inner form */
-form div.error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-/* Additional styles for inner form elements if needed */
-form input[type="text"] {
-    border: 1px solid #aaa;
-}
-
-button[disabled] {
-    background-color: #ccc;
-    /* Change to your desired background color */
-    color: #666;
-    /* Change to your desired text color */
-    cursor: not-allowed;
-}
-
-button:not([disabled]) {
-    background-color: #007bff;
-    /* Change to your desired background color when button is active */
-    color: #fff;
-    /* Change to your desired text color when button is active */
-    cursor: pointer;
-}
-
-button:hover:not([disabled]) {
-    background-color: #0056b3;
-    /* Change to your desired background color on hover when button is active */
-}
-
-button:disabled {
-    opacity: 0.5;
-    /* Reduce opacity to make it appear faded */
-    cursor: not-allowed;
-    /* Change the cursor to indicate it's not clickable */
-    /* You can add more styles as needed for your application's design */
+    &:hover {
+        background-color: #0056b3;
+    }
 }

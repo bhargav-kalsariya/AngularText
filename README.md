@@ -28,3 +28,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - learn about rxjs's subject
 - learn about rxjs's BehaviourSubject
 - create example by usign BehaviourSubject
+
+### Day 5 (30-10-2023)
+
+- create simple reactive form 
+- create nested reactive form with validations
+- redesign all the scss file 
+- create address array (user can add multiple address)
