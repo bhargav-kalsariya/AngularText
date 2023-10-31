@@ -55,7 +55,8 @@
             <div class="form-group">
                 <label for="state">State:</label>
                 <select id="state" name="state" formControlName="state">
-                    <option *ngFor="let state of states[address.get('country')?.value]" [value]="state">{{ state }}</option>
+                    <option *ngFor="let state of states[address.get('country')?.value]" [value]="state">{{ state }}
+                    </option>
                 </select>
                 <div class="error"
                     *ngIf="addresses.controls[i].get('state')?.hasError('required') && addresses.controls[i].get('state')?.touched">

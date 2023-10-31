@@ -7,7 +7,9 @@ import { FormBuilder, FormGroup, Validators, FormArray, AbstractControl } from '
   styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormComponent implements OnInit {
+
   mainForm!: FormGroup;
+  
   countries = ['Select a country', 'India', 'China', 'Germany'];
   states: { [key: string]: string[] } = {
     'India': ['Gujarat', 'Maharashtra', 'Delhi'],
