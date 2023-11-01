@@ -9,8 +9,9 @@ import { SharingService } from '../sharing.service';
 export class HomeComponent implements OnInit {
 
   showData: any;
+  posts: any[] = [];
 
-  constructor(private takeDataByBS: SharingService) { }
+  constructor(private takeDataByBS: SharingService, private httpData: SharingService) { }
 
   ngOnInit(): void {
 
@@ -18,6 +19,12 @@ export class HomeComponent implements OnInit {
       this.showData = data
     })
 
+  }
+
+  fetchData() {
+    this.httpData.getPosts().subscribe((data) => {
+      this.posts = data
+    })
   }
 
 }

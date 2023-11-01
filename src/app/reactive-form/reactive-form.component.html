@@ -1,0 +1,172 @@
+<h1>Reactive Form</h1>
+<form [formGroup]="mainForm">
+  <div class="form-group">
+    <label for="id">ID:</label>
+    <input type="number" id="id" name="id" formControlName="id" />
+    <div
+      class="error"
+      *ngIf="
+      mainForm.get('id')?.errors?.['required'] && submitted 
+      "
+    >
+      ID is required & ID must be a number.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" formControlName="name" />
+    <div
+      class="error"
+      *ngIf="
+      mainForm.get('name')?.errors?.['required'] && submitted 
+      "
+    >
+      Name is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" formControlName="email" />
+    <div
+      class="error"
+      *ngIf="
+        mainForm.get('email')?.errors?.['required'] && submitted 
+      "
+    >
+      Email is required.
+    </div>
+    <div
+      class="error"
+      *ngIf="
+      mainForm.get('email')?.errors?.['email']"
+    >
+      Invalid email format.
+    </div>
+  </div>
+  <div
+    formArrayName="addresses"
+    *ngFor="let address of addresses.controls; let i = index"
+  >
+    <div [formGroupName]="i" class="address">
+      <div class="form-group">
+        <label for="address1">Address 1:</label>
+        <input
+          type="text"
+          id="address1"
+          name="address1"
+          formControlName="address1"
+        />
+        <div
+          class="error"
+          *ngIf="
+            addresses.controls[i].get('address1')?.errors?.['required'] && submitted 
+          "
+        >
+          Address 1 is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address 2:</label>
+        <input
+          type="text"
+          id="address2"
+          name="address2"
+          formControlName="address2"
+        />
+        <div
+          class="error"
+          *ngIf="
+          addresses.controls[i].get('address2')?.errors?.['required'] && submitted 
+          "
+        >
+          Address 2 is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="landmark">Landmark:</label>
+        <input
+          type="text"
+          id="landmark"
+          name="landmark"
+          formControlName="landmark"
+        />
+        <div
+          class="error"
+          *ngIf="
+          addresses.controls[i].get('landmark')?.errors?.['required'] &&
+           submitted 
+          "
+        >
+          Landmark is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select
+          id="country"
+          name="country"
+          formControlName="country"
+          (change)="onCountryChange(i)"
+        >
+          <option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </option>
+        </select>
+        <div
+          class="error"
+          *ngIf="
+          addresses.controls[i].get('country')?.errors?.['required'] &&
+           submitted 
+          "
+        >
+          Country is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <select id="state" name="state" formControlName="state">
+          <option
+            *ngFor="let state of states[address.get('country')?.value]"
+            [value]="state"
+          >
+            {{ state }}
+          </option>
+        </select>
+        <div
+          class="error"
+          *ngIf="
+          addresses.controls[i].get('state')?.errors?.['required'] && submitted 
+          "
+        >
+          State is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <select id="city" name="city" formControlName="city">
+          <option
+            *ngFor="let city of cities[address.get('state')?.value]"
+            [value]="city"
+          >
+            {{ city }}
+          </option>
+        </select>
+        <div
+          class="error"
+          *ngIf="
+          addresses.controls[i].get('city')?.errors?.['required'] && submitted 
+          "
+        >
+          City is required.
+        </div>
+      </div>
+      <button class="remove-btn" (click)="removeAddress(i)">
+        Remove Address
+      </button>
+    </div>
+  </div>
+  <div class="space-btn">
+    <button (click)="addAddress()">Add Address</button>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+  </div>
+</form>

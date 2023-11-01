@@ -10,7 +10,7 @@ import {
   selector: '[appInBuild]',
 })
 export class InBuildDirective implements OnChanges {
-  constructor(private er: ElementRef, private renderer: Renderer2) {}
+  constructor(private er: ElementRef, private renderer: Renderer2) { }
 
   @HostListener('mouseenter') onMouseEnter() {
     this.renderer.setStyle(

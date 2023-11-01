@@ -1,59 +1,69 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
+// General styles
+body {
     font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    h1 {
-        color: #333;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.295);
+}
 
-    input {
+h2 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+input {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+// Media query for responsiveness (adjust as needed)
+@media (max-width: 768px) {
+    .container {
         padding: 10px;
-        font-size: 16px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        width: 100%;
     }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            margin-bottom: 10px;
-
-            &:hover {
-                background-color: #e0e0e0;
-            }
-        }
+    h2 {
+        font-size: 20px;
     }
 
     p {
-        color: #888;
-        margin-top: 20px;
+        font-size: 14px;
     }
-}
 
-.active {
-    padding: 1rem;
-    color: green;
-}
-
-.box {
-    width: 200px;
-    height: 100px;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    input {
+        padding: 8px;
+    }
 }
