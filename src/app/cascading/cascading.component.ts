@@ -27,9 +27,9 @@ export class CascadingComponent implements OnInit {
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
       id: [0],
-      country: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      city: ['', [Validators.required]],
+      country: [null, [Validators.required]],
+      state: [null, [Validators.required]],
+      city: [null, [Validators.required]],
     });
   }
 
@@ -37,6 +37,10 @@ export class CascadingComponent implements OnInit {
     this.registrationForm.controls['state'].reset();
     this.registrationForm.controls['city'].reset();
     const countryId = +id.target.value;
+    this.getStateByCountryId(countryId);
+  }
+
+  getStateByCountryId(countryId: number) {
     this.stateList = this.stateData.filter(
       (d: any) => d.countryId == countryId
     );
@@ -45,12 +49,21 @@ export class CascadingComponent implements OnInit {
   onSelectState(id: any): void {
     const stateId = +id.target.value;
     this.registrationForm.controls['city'].reset();
-    this.cityList = this.cityData.filter((d1: any) => d1.stateId === stateId);
+    this.getCityByStateId(stateId);
+  }
+
+  getCityByStateId(stateId: number) {
+    this.cityList = this.cityData.filter((city) => city.stateId == stateId);
   }
 
   editClickHandle(item: any) {
     this.registrationForm.patchValue(item);
+    let countryId = item.country;
+    let stateId = item.state;
+    this.getStateByCountryId(countryId);
+    this.getCityByStateId(stateId);
   }
+
   deleteClickHandle(item: any) {
     const index = this.formData.indexOf(item);
     this.formData.splice(index, 1);
