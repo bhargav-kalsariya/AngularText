@@ -1,1 +1,101 @@
-<p>cascading works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      {{ registrationForm.value | json }}
+      <hr />
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <!-- <div class="form-group">
+                 <label for="">Id</label>
+                 <input type="number" placeholder="Enter Id" class="form-control" formControlName="id">
+            </div> -->
+
+        <div class="form-group">
+          <label>Country</label>
+          <select
+            (change)="onSelectCountry($event)"
+            class="form-control"
+            formControlName="country"
+          >
+            <option value="">Select Country</option>
+            <ng-container *ngFor="let country of countryData">
+              <option [value]="country.id">{{ country.name }}</option>
+            </ng-container>
+          </select>
+          <span
+            class="text-danger"
+            *ngIf="submitted && registrationForm.get('country')?.errors?.['required']"
+          >
+            Country is required.
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label>State</label>
+          <select
+            (change)="onSelectState($event)"
+            class="form-control"
+            formControlName="state"
+          >
+            <option value="">Select state</option>
+            <ng-container *ngFor="let state of stateList">
+              <option [value]="state.id">{{ state.name }}</option>
+            </ng-container>
+          </select>
+          <span
+            class="text-danger"
+            *ngIf="submitted && registrationForm.get('state')?.errors?.['required']"
+          >
+            State is required.
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label>City</label>
+          <select class="form-control" formControlName="city">
+            <option value="">Select city</option>
+            <ng-container *ngFor="let city of cityList">
+              <option [value]="city.id">{{ city.name }}</option>
+            </ng-container>
+          </select>
+          <span
+            class="text-danger"
+            *ngIf=" submitted && registrationForm.get('city')?.errors?.['required']"
+          >
+            City is required.
+          </span>
+        </div>
+
+        <button class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+  {{ formData | json }}
+</div>
+<br />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>CountryId</th>
+      <th>StateId</th>
+      <th>CityId</th>
+      <th>Controls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border border-right-2" *ngFor="let item of formData">
+      <td>{{ item.id }}</td>
+      <td>{{ item.country }}</td>
+      <td>{{ item.state }}</td>
+      <td>{{ item.city }}</td>
+      <td>
+        <button class="btn btn-success mr-2" (click)="editClickHandle(item)">
+          Edit</button
+        ><button class="btn btn-danger" (click)="deleteClickHandle(item)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
