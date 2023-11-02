@@ -8,6 +8,8 @@ import { Cities, Countries, States } from './dropdownData';
   styleUrls: ['./cascading.component.scss'],
 })
 export class CascadingComponent implements OnInit {
+  // declarations
+
   registrationForm!: FormGroup;
   submitted = false;
 
@@ -23,6 +25,8 @@ export class CascadingComponent implements OnInit {
   formData: Array<any> = [];
 
   constructor(private fb: FormBuilder) {}
+
+  // component life cycle
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({

@@ -38,3 +38,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - implements cascading into address's country , city , state
 - send errors on blank form submission 
 - fix bug of dropdowns (resets the city and state when country got changed) 
+
+### Day 6 (31-10-2023)
+
+- learn cascading
+- create example of cascading 
+- showing records in table after form submit 
+- implements create records , update records , and delete records 
+- crud operation done
