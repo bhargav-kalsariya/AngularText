@@ -15,7 +15,6 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CascadingComponent } from './cascading/cascading.component';
 import { NameByIdPipe } from './name-by-id.pipe';
-import { HttpRequestComponent } from './http-request/http-request.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { HttpRequestComponent } from './http-request/http-request.component';
     ReactiveFormComponent,
     CascadingComponent,
     NameByIdPipe,
-    HttpRequestComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],

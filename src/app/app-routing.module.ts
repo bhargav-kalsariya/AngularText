@@ -7,7 +7,6 @@ import { MyFormComponent } from './my-form/my-form.component';
 import { ParentComponent } from './parent/parent.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CascadingComponent } from './cascading/cascading.component';
-import { HttpRequestComponent } from './http-request/http-request.component';
 
 const routes: Routes = [
   {
@@ -37,11 +36,7 @@ const routes: Routes = [
   {
     component: CascadingComponent,
     path: 'cascading',
-  },
-  {
-    component: HttpRequestComponent,
-    path: 'httprequest',
-  },
+  }
 ];
 
 @NgModule({
