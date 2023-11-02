@@ -14,6 +14,7 @@ import { ChildComponent } from './child/child.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CascadingComponent } from './cascading/cascading.component';
+import { NameByIdPipe } from './name-by-id.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CascadingComponent } from './cascading/cascading.component';
     ChildComponent,
     ReactiveFormComponent,
     CascadingComponent,
+    NameByIdPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [],

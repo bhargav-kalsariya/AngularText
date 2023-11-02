@@ -86,9 +86,9 @@
   <tbody>
     <tr class="border border-right-2" *ngFor="let item of formData">
       <td>{{ item.id }}</td>
-      <td>{{ item.country }}</td>
-      <td>{{ item.state }}</td>
-      <td>{{ item.city }}</td>
+      <td>{{ item.country | nameById : "country" }}</td>
+      <td>{{ item.state | nameById : "state" }}</td>
+      <td>{{ item.city | nameById : "city" }}</td>
       <td>
         <button class="btn btn-success mr-2" (click)="editClickHandle(item)">
           Edit</button
