@@ -17,4 +17,8 @@ export class ApiService {
     const path = '/posts';
     return this.http.get<any>(`${environment.BASE_URL}${path}`);
   }
+  public postData(data: any): Observable<any> {
+    const path = '/posts';
+    return this.http.post<any>(`${environment.BASE_URL}${path}`, data);
+  }
 }
