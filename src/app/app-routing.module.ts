@@ -7,6 +7,7 @@ import { MyFormComponent } from './my-form/my-form.component';
 import { ParentComponent } from './parent/parent.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CascadingComponent } from './cascading/cascading.component';
+import { ApiIntegrationComponent } from './api-integration/api-integration/api-integration.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     component: CascadingComponent,
     path: 'cascading',
+  },
+  {
+    component: ApiIntegrationComponent,
+    path: 'api',
   },
 ];
 

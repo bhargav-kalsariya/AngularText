@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON Data Table</title>
+  </head>
+  <body>
+    <input type="number" placeholder="Enter Endpoint" [(ngModel)]="endPoint" />
+    <button (click)="fetchData()">Get Data</button>
+    <table>
+      <tr>
+        <th>userId</th>
+        <th>id</th>
+        <th>title</th>
+        <th>body</th>
+      </tr>
+
+      <!-- displayed get  -->
+
+      <tr *ngFor="let data of getApiData">
+        <td>{{ data.userId }}</td>
+        <td>{{ data.id }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.body }}</td>
+      </tr>
+
+      <!-- display new post  -->
+
+      <tr *ngFor="let data of postApiData">
+        <td>{{ data.userId }}</td>
+        <td>{{ data.id }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.body }}</td>
+      </tr>
+    </table>
+  </body>
+</html>
