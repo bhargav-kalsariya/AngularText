@@ -1,1 +1,16 @@
-<p>http-request works!</p>
+<h1>Received Data from GET Request</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post Key</th>
+      <th>Post value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of postData | keyvalue">
+      <td>{{ post.key }}</td>
+      <td>{{ post.value }}</td>
+    </tr>
+  </tbody>
+</table>
