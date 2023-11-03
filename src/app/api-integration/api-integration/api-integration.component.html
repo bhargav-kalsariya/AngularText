@@ -25,7 +25,7 @@
         <td>{{ data.title }}</td>
         <td>{{ data.body }}</td>
         <button (click)="updateData(data)">edit</button>
-        <button class="bg-danger">delete</button>
+        <button class="bg-danger" (click)="deleteData(data.id)">delete</button>
       </tr>
 
       <!-- displayed post data -->
@@ -36,7 +36,7 @@
         <td>{{ data.title }}</td>
         <td>{{ data.body }}</td>
         <button (click)="updateData(data)">edit</button>
-        <button class="bg-danger">delete</button>
+        <button class="bg-danger" (click)="deleteData(data.id)">delete</button>
       </tr>
     </table>
 

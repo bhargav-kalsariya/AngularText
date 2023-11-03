@@ -46,6 +46,14 @@ export class ApiIntegrationComponent implements OnInit {
     this.postForm.setValue(data);
   }
 
+  // delete Api Process
+
+  deleteData(dataId: any) {
+    this.apiData.deleteData(dataId).subscribe(() => {
+      this.postApiData = this.postApiData.filter((data) => data.id !== dataId);
+    });
+  }
+
   // submit form
 
   onSubmitHandle() {

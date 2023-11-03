@@ -34,4 +34,12 @@ export class ApiService {
       data
     );
   }
+
+  // delete request
+
+  public deleteData(dataId: any): Observable<any> {
+    return this.http.delete<any>(
+      `${environment.BASE_URL}${this.path}${dataId}`
+    );
+  }
 }
