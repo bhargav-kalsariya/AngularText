@@ -3,10 +3,12 @@
   <head>
     <title>JSON Data Table</title>
   </head>
-  <body>
-    <input type="number" placeholder="Enter Endpoint" [(ngModel)]="endPoint" />
-    <button (click)="fetchData()">Get Data</button>
+  <body class="bg-dark vh-100">
+    <h1 class="text-white p-2">Get Api</h1>
     <table>
+      <input type="number" placeholder="Enter user Id" [(ngModel)]="endPoint" />
+      <button (click)="fetchData()">Get Data</button>
+      <button (click)="fetchAllData()">Get All Data</button>
       <tr>
         <th>userId</th>
         <th>id</th>
@@ -17,15 +19,6 @@
       <!-- displayed get  -->
 
       <tr *ngFor="let data of getApiData">
-        <td>{{ data.userId }}</td>
-        <td>{{ data.id }}</td>
-        <td>{{ data.title }}</td>
-        <td>{{ data.body }}</td>
-      </tr>
-
-      <!-- display new post  -->
-
-      <tr *ngFor="let data of postApiData">
         <td>{{ data.userId }}</td>
         <td>{{ data.id }}</td>
         <td>{{ data.title }}</td>
