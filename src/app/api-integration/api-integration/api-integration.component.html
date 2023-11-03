@@ -5,15 +5,16 @@
   </head>
   <body class="bg-dark vh-auto">
     <h1 class="text-white p-2">Get Api</h1>
+    <input type="number" placeholder="Enter user Id" [(ngModel)]="endPoint" />
+    <button (click)="fetchData()">Get Data</button>
+    <button (click)="fetchAllData()">Get All Data</button>
     <table>
-      <input type="number" placeholder="Enter user Id" [(ngModel)]="endPoint" />
-      <button (click)="fetchData()">Get Data</button>
-      <button (click)="fetchAllData()">Get All Data</button>
       <tr>
         <th>userId</th>
         <th>id</th>
         <th>title</th>
         <th>body</th>
+        <th>controls</th>
       </tr>
 
       <!-- displayed get  -->
@@ -23,6 +24,19 @@
         <td>{{ data.id }}</td>
         <td>{{ data.title }}</td>
         <td>{{ data.body }}</td>
+        <button (click)="updateData(data)">edit</button>
+        <button class="bg-danger">delete</button>
+      </tr>
+
+      <!-- displayed post data -->
+
+      <tr *ngFor="let data of postApiData">
+        <td>{{ data.userId }}</td>
+        <td>{{ data.id }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.body }}</td>
+        <button (click)="updateData(data)">edit</button>
+        <button class="bg-danger">delete</button>
       </tr>
     </table>
 
@@ -76,7 +90,7 @@
         Body required
       </div>
       <br /><br />
-      <button class="btn btn-danger">Good To Go</button>
+      <button class="btn btn-danger">Save</button>
     </form>
   </body>
 </html>

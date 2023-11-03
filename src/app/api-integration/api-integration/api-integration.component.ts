@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./api-integration.component.scss'],
 })
 export class ApiIntegrationComponent implements OnInit {
-  getApiData!: any[];
-  postApiData!: any[];
+  getApiData: any[] = [];
+  postApiData: any[] = [];
   endPoint!: number;
   postForm!: FormGroup;
   submitted = false;
@@ -33,20 +33,50 @@ export class ApiIntegrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.postForm = this.fb.group({
-      id: [0, Validators.required],
-      userId: [null, Validators.required],
-      title: [null, Validators.required],
-      body: [null, Validators.required],
+      id: [0],
+      userId: ['', Validators.required],
+      title: ['', Validators.required],
+      body: ['', Validators.required],
     });
   }
+
+  // patch Api process
+
+  updateData(data: any) {
+    this.postForm.setValue(data);
+  }
+
+  // submit form
+
   onSubmitHandle() {
     this.submitted = true;
+
     if (this.postForm.valid) {
-      console.log(this.postForm.value);
+      const formData = this.postForm.value;
+
+      // if id present means data is already exist
+
+      if (formData.id) {
+        this.apiData.patchData(formData.id, formData).subscribe((data) => {
+          console.log('updated successfully', data);
+          const index = this.postApiData.findIndex(
+            (item) => item.id === data.id
+          );
+          if (index !== -1) {
+            this.postApiData[index] = data;
+          }
+        });
+        // otherwise create new data
+      } else {
+        this.apiData.postData(this.postForm.value).subscribe((data) => {
+          this.postApiData = Array.isArray(data) ? data : [data];
+          console.log('posted successfully', data);
+        });
+      }
+      this.postForm.reset();
       this.submitted = false;
+    } else {
+      alert('you are doing wrong with this form.');
     }
-    this.apiData.postData(this.postForm.value).subscribe((data) => {
-      console.log(data);
-    });
   }
 }
