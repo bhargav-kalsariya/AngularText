@@ -7,18 +7,39 @@ import { environment } from 'src/environment/environment';
   providedIn: 'root',
 })
 export class ApiService {
+  path = '/posts/';
+
   constructor(private http: HttpClient) {}
 
+  // get request
+
   public getData(id: number): Observable<any> {
-    const path = '/posts/';
-    return this.http.get<any>(`${environment.BASE_URL}${path}${id}`);
+    return this.http.get<any>(`${environment.BASE_URL}${this.path}${id}`);
   }
   public getAllData(): Observable<any> {
-    const path = '/posts';
-    return this.http.get<any>(`${environment.BASE_URL}${path}`);
+    return this.http.get<any>(`${environment.BASE_URL}${this.path}`);
   }
+
+  // post request
+
   public postData(data: any): Observable<any> {
-    const path = '/posts';
-    return this.http.post<any>(`${environment.BASE_URL}${path}`, data);
+    return this.http.post<any>(`${environment.BASE_URL}${this.path}`, data);
+  }
+
+  // patch request
+
+  public patchData(dataId: number, data: any): Observable<any> {
+    return this.http.patch<any>(
+      `${environment.BASE_URL}${this.path}${dataId}`,
+      data
+    );
+  }
+
+  // delete request
+
+  public deleteData(dataId: any): Observable<any> {
+    return this.http.delete<any>(
+      `${environment.BASE_URL}${this.path}${dataId}`
+    );
   }
 }
