@@ -38,7 +38,8 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
-input[type="number"] {
+input[type="number"],
+input[type="text"] {
   padding: 5px;
   font-size: 16px;
   border: 1px solid #ccc;
