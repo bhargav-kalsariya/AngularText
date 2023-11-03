@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastService } from './toast.service';
 
 @Component({
   selector: 'app-api-integration',
@@ -14,7 +15,11 @@ export class ApiIntegrationComponent implements OnInit {
   postForm!: FormGroup;
   submitted = false;
 
-  constructor(private apiData: ApiService, private fb: FormBuilder) {}
+  constructor(
+    private apiData: ApiService,
+    private fb: FormBuilder,
+    private toastr: ToastService
+  ) {}
 
   // get api Process
 
@@ -76,7 +81,8 @@ export class ApiIntegrationComponent implements OnInit {
         });
         // otherwise create new data
       } else {
-        this.apiData.postData(this.postForm.value).subscribe((data) => {
+        this.apiData.postData(formData).subscribe((data) => {
+          this.toastr.showSuccess('post created successfully', 'Success');
           this.postApiData = Array.isArray(data) ? data : [data];
           console.log('posted successfully', data);
         });
