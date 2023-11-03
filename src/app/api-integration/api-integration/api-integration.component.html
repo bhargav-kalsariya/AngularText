@@ -3,7 +3,7 @@
   <head>
     <title>JSON Data Table</title>
   </head>
-  <body class="bg-dark vh-100">
+  <body class="bg-dark vh-auto">
     <h1 class="text-white p-2">Get Api</h1>
     <table>
       <input type="number" placeholder="Enter user Id" [(ngModel)]="endPoint" />
@@ -25,5 +25,58 @@
         <td>{{ data.body }}</td>
       </tr>
     </table>
+
+    <!-- displayed post form -->
+
+    <h1 class="text-white py-5">Post Api</h1>
+
+    <form [formGroup]="postForm" (ngSubmit)="onSubmitHandle()">
+      <label for="userId" class="text-white px-1">UserId :</label>
+      <input
+        type="number"
+        id="userId"
+        formControlName="userId"
+        required
+        placeholder="Enter userId"
+      />
+      <div
+        class="text-danger"
+        *ngIf="postForm.get('userId')?.errors?.['required'] && submitted"
+      >
+        UserId required
+      </div>
+      <br /><br />
+      <label for="title" class="text-white px-1">Title :</label>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        required
+        placeholder="Enter Title"
+      />
+      <div
+        class="text-danger"
+        *ngIf="postForm.get('title')?.errors?.['required'] && submitted"
+      >
+        Title required
+      </div>
+      <br /><br />
+      <label for="body" class="text-white px-1">Body :</label>
+      <input
+        type="text"
+        id="body"
+        formControlName="body"
+        required
+        placeholder="Enter Body"
+      />
+      <div
+        class="text-danger"
+        *ngIf="postForm.get('body')?.errors?.['required'] && submitted"
+      >
+        Body required
+      </div>
+      <br /><br />
+      <button class="btn btn-danger">Good To Go</button>
+    </form>
   </body>
 </html>
