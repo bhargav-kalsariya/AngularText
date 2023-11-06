@@ -18,7 +18,7 @@ export class ApiIntegrationComponent implements OnInit {
   constructor(
     private apiData: ApiService,
     private fb: FormBuilder,
-    private toastr: ToastService
+    private toast: ToastService
   ) {}
 
   // get api Process
@@ -56,6 +56,7 @@ export class ApiIntegrationComponent implements OnInit {
   deleteData(dataId: any) {
     this.apiData.deleteData(dataId).subscribe(() => {
       this.postApiData = this.postApiData.filter((data) => data.id !== dataId);
+      this.toast.showSuccess('Data Delete successfully', 'Success');
     });
   }
 
@@ -78,11 +79,12 @@ export class ApiIntegrationComponent implements OnInit {
           if (index !== -1) {
             this.postApiData[index] = data;
           }
+          this.toast.showSuccess('Data updated successfully', 'Success');
         });
         // otherwise create new data
       } else {
         this.apiData.postData(formData).subscribe((data) => {
-          this.toastr.showSuccess('post created successfully', 'Success');
+          this.toast.showSuccess('Data posted successfully', 'right');
           this.postApiData = Array.isArray(data) ? data : [data];
           console.log('posted successfully', data);
         });
