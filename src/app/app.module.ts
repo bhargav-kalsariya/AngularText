@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CascadingComponent } from './cascading/cascading.component';
 import { NameByIdPipe } from './name-by-id.pipe';
 import { ApiIntegrationComponent } from './api-integration/api-integration/api-integration.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,19 @@ import { ApiIntegrationComponent } from './api-integration/api-integration/api-i
     NameByIdPipe,
     ApiIntegrationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true, // Prevent showing duplicate toasts
+      closeButton: true, // Show close button
+    }),
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
